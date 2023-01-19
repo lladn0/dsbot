@@ -19,7 +19,7 @@ class Emoji_role_games(commands.Cog):
         moji = await ctx.channel.send(embed=text)
         for i in ['Genshin_impact', 'Valorant', 'Dota2', 'LOL', 'SeaOfThieves', 'CSGO']:
             await moji.add_reaction(get(ctx.message.guild.emojis, name=i))
-
+                    
 
 
     @commands.Cog.listener()
@@ -81,8 +81,10 @@ class Emoji_role_games(commands.Cog):
                 await member.remove_roles(role)
 
 
-def setup(bot):
-    """
-    Important thing in discord py cogs. Just adds cog to main code
-    """
-    bot.add_cog(Emoji_role_games(bot))
+    def setup(bot):
+        """
+        Important thing in discord py cogs. Just adds cog to main code
+        """
+        bot.add_cog(Emoji_role_games(bot))from discord.ext import commands
+    import discord
+    from discord.utils import get

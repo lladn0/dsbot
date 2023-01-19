@@ -1,12 +1,12 @@
-from discord.ext import commands
 import discord
-from peewee import *
+import os
+from discord.ext import commands
 from discord_components import DiscordComponents
+
 bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 # @commands.has_permissions(administrator = True)
 
-conn = SqliteDatabase('level_db')
-cursor = conn.cursor()
+
 
 @bot.event
 async def on_ready():
@@ -14,9 +14,13 @@ async def on_ready():
     print('bot online')
 
 
-extensions = ['cogs.EventCog', 'cogs.GamesCog', 'cogs.CommandsCog']
+extensions = ['cogs.EventCog', 'cogs.ROLE_GamesCog', 'cogs.CommandsCog']
 for i in extensions:
     bot.load_extension(i)
 
 
-bot.run('OTc3ODk3MjA5MTc1NjIxNjcz.G1HxX1.jvrNGE_FYoQDmxfZyzmvV0taQTmC99eArslx0M')
+
+try:
+    bot.run('OTc3ODk3MjA5MTc1NjIxNjcz.GKcrpN.Es_ZU7F0W64nyoBgyORIBzwKOy70WV5basbsYo')
+except:
+    os.system("kill 1")
